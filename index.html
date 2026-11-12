@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Mudawi Murdhi Aldossari, Information Science graduate: data analysis and Power BI, records management, digital archiving and research.">
+<meta property="og:title" content="Mudawi Aldossari">
+<meta property="og:description" content="Information Science graduate: records management, digital archiving, data analysis and research.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='12' width='52' height='40' rx='3' fill='%23FCFCF9' stroke='%2316202A' stroke-width='3'/%3E%3Cline x1='6' y1='24' x2='58' y2='24' stroke='%23B3332C' stroke-width='3'/%3E%3Ccircle cx='32' cy='45' r='3.5' fill='%2316202A'/%3E%3C/svg%3E">
+<title>Mudawi Aldossari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap">
+<style>
+/* Layout: archive-box board as the ground; one typewritten library catalog card in the hero;
+   every section filed under its real Dewey Decimal class number. English and Arabic (RTL). */
+:root {
+  /* single dark look by choice: archive vault at night */
+  color-scheme: dark;
+  --board: #10161B;      /* page ground */
+  --paper: #19212A;      /* card stock */
+  --ink: #E3E9EE;
+  --muted: #97A4B0;
+  --line: #2A3641;
+  --card-rule: #26384A;  /* faint blue ruling on the card */
+  --mark: #E8685E;       /* catalog-card red rule, call numbers, stamp */
+  --accent: #9CBDEB;     /* links and buttons */
+  --accent-ink: #0E1620;
+  --chip: #1D2731;
+  --shadow: rgba(0, 0, 0, .45);
+
+  --display: "Archivo", "Noto Kufi Arabic", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --body: "Archivo", "IBM Plex Sans Arabic", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --type: "Courier Prime", "IBM Plex Sans Arabic", "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--board);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 4px; }
+.shelf { max-width: 1120px; margin-inline: auto; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+
+/* ---------- top bar ---------- */
+.top {
+  display: flex; align-items: center; gap: 16px 24px;
+  padding-block: 18px; border-bottom: 1px solid var(--line);
+}
+.top .brand { font-family: var(--type); font-size: 14px; color: var(--muted); white-space: nowrap; }
+.top .brand b { color: var(--mark); font-weight: 700; }
+.top nav { min-width: 0; overflow-x: auto; scrollbar-width: none; margin-inline-start: auto; }
+.top nav::-webkit-scrollbar { display: none; }
+.top nav ul { display: flex; gap: 22px; white-space: nowrap; }
+.top nav a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
+.top nav a:hover { color: var(--accent); text-decoration: underline; }
+.lang-btn {
+  appearance: none; flex: none; cursor: pointer;
+  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  font: 600 14px/1 var(--body); padding: 8px 12px; border-radius: 999px;
+}
+.lang-btn:hover { background: var(--ink); color: var(--board); }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(32px, 5vw, 72px); align-items: center;
+  padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 56px);
+}
+.eyebrow {
+  font-family: var(--type); font-size: 13px; letter-spacing: .04em; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+}
+.eyebrow span + span::before { content: "/"; margin-inline-end: 14px; color: var(--line); }
+.hero h1 {
+  font-family: var(--display);
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6.4vw, 5rem);
+  line-height: .96;
+  letter-spacing: -.02em;
+  margin-top: 18px;
+  text-wrap: balance;
+}
+.hero h1 .given { display: block; color: var(--accent); }
+.lead { margin-top: 22px; font-size: 1.15rem; line-height: 1.6; max-width: 34em; color: var(--ink); }
+.actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  appearance: none; border: 1.5px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  font: 600 15px/1 var(--body); padding: 13px 18px; border-radius: 6px; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn:disabled { opacity: .6; cursor: progress; }
+.status { font-size: 14px; color: var(--muted); min-height: 1.4em; margin-top: 10px; }
+
+/* the catalog card */
+.card-wrap { display: flex; justify-content: center; }
+.card {
+  --lh: 24px; --pad: 26px;
+  position: relative; width: 100%; max-width: 480px;
+  font-family: var(--type); font-size: 14.5px; line-height: var(--lh); color: var(--ink);
+  padding-block: var(--pad) 64px; padding-inline: 20px 26px;
+  border-radius: 3px;
+  background:
+    linear-gradient(var(--mark), var(--mark)) 0 calc(var(--pad) + var(--lh) + 3px) / 100% 1.5px no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), var(--card-rule) calc(var(--lh) - 1px) var(--lh)) 0 calc(var(--pad) + 3px) / 100% 100% no-repeat,
+    var(--paper);
+  box-shadow: 0 1px 0 var(--line), 0 18px 40px -18px var(--shadow), 0 2px 6px var(--shadow);
+  transform: rotate(-1.6deg);
+  animation: file-in .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+.card::after {
+  content: ""; position: absolute; left: 50%; bottom: 16px; width: 20px; height: 20px; margin-left: -10px;
+  border-radius: 50%; background: var(--board); box-shadow: inset 0 2px 3px var(--shadow);
+}
+.card-grid { display: grid; grid-template-columns: 6ch minmax(0, 1fr); column-gap: 10px; }
+.cn { color: var(--mark); font-weight: 700; font-family: "Courier Prime", "Courier New", monospace; }
+.ct p { margin: 0; }
+.ct .ti { text-indent: 2ch; }
+.ct .tr { margin-top: var(--lh); }
+.stamp {
+  position: absolute; inset-inline-end: 22px; bottom: 18px;
+  font-family: var(--display); font-stretch: 70%; font-weight: 800; font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; line-height: 1;
+  color: var(--mark); border: 2px solid var(--mark); border-radius: 4px; padding: 6px 9px 5px;
+  transform: rotate(-7deg); opacity: .88;
+  animation: stamp .35s .75s ease-out both;
+}
+@keyframes file-in { from { transform: translateY(-14px) rotate(-5deg); } to { transform: rotate(-1.6deg); } }
+@keyframes stamp { from { transform: rotate(-7deg) scale(1.35); } to { transform: rotate(-7deg) scale(1); } }
+
+/* at a glance */
+.glance {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.glance li { padding-block: 20px; padding-inline: 0 20px; min-width: 0; }
+.glance li + li { padding-inline-start: 20px; border-inline-start: 1px solid var(--line); }
+.glance .k {
+  font-family: var(--display); font-stretch: 112%; font-weight: 700; font-size: 1.2rem; line-height: 1.25;
+  text-wrap: balance;
+}
+.glance .v { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+/* ---------- sections ---------- */
+section { padding-block: clamp(48px, 7vw, 80px) 0; scroll-margin-top: 16px; }
+.sec-head {
+  display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 12px 32px;
+  align-items: baseline; margin-bottom: 28px;
+}
+.callno { font-family: var(--type); font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+.callno b { color: var(--mark); font-weight: 700; display: block; font-size: 15px; font-family: "Courier Prime", "Courier New", monospace; }
+.sec-head h2 {
+  font-family: var(--display); font-stretch: 118%; font-weight: 800;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.05; letter-spacing: -.015em; text-wrap: balance;
+}
+.body-col { margin-inline-start: calc(220px + 32px); min-width: 0; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  font-size: 13.5px; font-weight: 500; padding: 5px 10px; border-radius: 4px;
+  background: var(--chip); border: 1px solid var(--line); color: var(--ink);
+}
+
+/* research */
+.paper-title {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-weight: 650; font-stretch: 100%;
+  font-size: clamp(1.25rem, 2.3vw, 1.6rem); line-height: 1.25; text-wrap: balance; max-width: 36em;
+}
+.authors { margin-top: 12px; font-size: 14.5px; color: var(--muted); max-width: 60em; }
+.authors b { color: var(--ink); }
+.venue { margin-top: 10px; font-family: var(--type); font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.venue .ok { color: var(--mark); font-weight: 700; }
+.paper-body { margin-top: 22px; max-width: 40em; }
+.measures { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.measures li { padding-block: 16px 4px; padding-inline: 0 18px; min-width: 0; }
+.measures li + li { padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
+.measures h3 { font-size: 1.02rem; font-weight: 700; }
+.measures p { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
+
+/* projects */
+.feature {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  padding: clamp(20px, 3.5vw, 36px);
+}
+.kicker { font-family: var(--type); font-size: 13px; color: var(--mark); letter-spacing: .03em; }
+.feature h3 {
+  margin-top: 8px; font-family: var(--display); font-stretch: 108%; font-weight: 750;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem); line-height: 1.25; text-wrap: balance; max-width: 30em;
+}
+.feature > p { margin-top: 12px; max-width: 46em; }
+.feature > p.badge {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-family: var(--type); font-size: 13px; font-weight: 700; color: var(--mark);
+  border: 1.5px solid var(--mark); border-radius: 999px; padding: 5px 12px; max-width: 100%;
+}
+.flow {
+  margin-top: 28px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px;
+  counter-reset: step;
+}
+.flow li {
+  position: relative; min-width: 0; padding: 14px 14px 16px; border-radius: 6px;
+  background: var(--board); border: 1px solid var(--line); counter-increment: step;
+}
+.flow li::before {
+  content: counter(step); font-family: "Courier Prime", "Courier New", monospace; font-weight: 700; color: var(--mark); font-size: 13px;
+  display: block; margin-bottom: 6px;
+}
+.flow li:not(:last-child)::after {
+  content: "\2192"; position: absolute; inset-inline-end: -22px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); font-size: 18px;
+}
+:root[dir="rtl"] .flow li:not(:last-child)::after { content: "\2190"; }
+.flow .s { font-weight: 700; font-size: 15px; line-height: 1.3; }
+.flow .d { font-size: 13.5px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.flow li.hot { border-color: var(--mark); }
+.feature .chips { margin-top: 24px; }
+.feature + .feature { margin-top: 20px; }
+.shot { margin-top: 24px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); }
+.shot img { display: block; width: 100%; max-width: 100%; height: auto; }
+.shot figcaption { font-family: var(--type); font-size: 13px; color: var(--muted); padding: 10px 12px; border-top: 1px solid var(--line); }
+.split { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px 32px; }
+.split h4 { margin: 0 0 10px; font-family: var(--type); font-size: 13px; color: var(--mark); letter-spacing: .04em; font-weight: 700; }
+.split .chips { margin-top: 0; }
+.ticks { display: grid; gap: 6px; }
+.proj-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
+.ticks li { padding-inline-start: 18px; position: relative; font-size: 15px; }
+.ticks li::before { content: ""; position: absolute; inset-inline-start: 0; top: .75em; width: 8px; height: 1.5px; background: var(--mark); }
+.projects-more { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.projects-more.one { grid-template-columns: minmax(0, 1fr); }
+.projects-more.one .proj p { max-width: 46em; }
+.proj { border-top: 2px solid var(--ink); padding-top: 16px; min-width: 0; }
+.proj h3 { font-family: var(--display); font-stretch: 108%; font-weight: 700; font-size: 1.2rem; line-height: 1.3; }
+.proj p { margin-top: 8px; color: var(--ink); }
+.proj .chips { margin-top: 14px; }
+
+/* experience register */
+.register > li {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 10px 32px;
+  padding-block: 22px; border-top: 1px solid var(--line);
+}
+.register > li:last-child { border-bottom: 1px solid var(--line); }
+.register h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.35; }
+.register .org { color: var(--muted); font-size: 15px; margin-top: 2px; }
+.register ul { display: grid; gap: 6px; }
+.register ul li { padding-inline-start: 18px; position: relative; font-size: 15.5px; }
+.register ul li::before {
+  content: ""; position: absolute; inset-inline-start: 0; top: .75em; width: 8px; height: 1.5px; background: var(--mark);
+}
+
+/* recognition */
+.awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.award { border-top: 2px solid var(--ink); padding-top: 16px; min-width: 0; }
+.award .who { font-family: var(--type); font-size: 13.5px; color: var(--muted); }
+.award h3 { margin-top: 6px; font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 1.45rem; line-height: 1.2; }
+.award p { margin-top: 8px; max-width: 34em; }
+.award .meta { font-family: var(--type); font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+.skills h3, .soft h3 { font-size: 13px; font-family: var(--type); color: var(--mark); letter-spacing: .04em; font-weight: 700; }
+.skills h3 { margin-bottom: 10px; }
+.soft { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
+.soft h3 { margin-bottom: 6px; }
+.soft p { font-size: 15.5px; }
+
+/* education */
+.edu { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; border-top: 2px solid var(--ink); padding-top: 16px; }
+.edu h3 { font-family: var(--display); font-stretch: 108%; font-weight: 750; font-size: 1.3rem; }
+.edu .years { font-family: "Courier Prime", "Courier New", monospace; font-size: 15px; color: var(--mark); font-weight: 700; font-variant-numeric: tabular-nums; }
+.edu p { grid-column: 1 / -1; color: var(--muted); }
+
+/* contact */
+.contact {
+  margin-top: clamp(56px, 8vw, 96px); padding: clamp(24px, 4vw, 44px);
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px 40px; align-items: center;
+}
+.contact h2 { font-family: var(--display); font-stretch: 118%; font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.1; text-wrap: balance; }
+.contact .sub { margin-top: 10px; color: var(--muted); }
+.contact-list { display: grid; gap: 14px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.row .lbl { font-family: var(--type); font-size: 12.5px; color: var(--muted); width: 72px; letter-spacing: .04em; }
+.addr { font-weight: 600; word-break: break-all; user-select: all; }
+.mini {
+  appearance: none; border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+  font: 600 13px/1 var(--body); padding: 7px 10px; border-radius: 5px; cursor: pointer;
+}
+.mini:hover { border-color: var(--accent); color: var(--accent); }
+footer { margin-top: 28px; font-family: var(--type); font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
+
+/* ---------- Arabic ---------- */
+:root[dir="rtl"] * { letter-spacing: 0; text-transform: none; }
+:root[dir="rtl"] .hero h1 { line-height: 1.3; font-size: clamp(2.4rem, 5.8vw, 4.4rem); }
+:root[dir="rtl"] .sec-head h2, :root[dir="rtl"] .contact h2 { line-height: 1.4; }
+:root[dir="rtl"] .feature h3, :root[dir="rtl"] .award h3, :root[dir="rtl"] .glance .k { line-height: 1.5; }
+:root[dir="rtl"] .card { font-size: 14px; }
+:root[dir="rtl"] .stamp { font-size: 14px; padding: 6px 10px; }
+:root[dir="rtl"] .eyebrow, :root[dir="rtl"] .kicker, :root[dir="rtl"] .skills h3, :root[dir="rtl"] .soft h3 { font-size: 14px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .card-wrap { justify-content: flex-start; }
+  .sec-head { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .body-col { margin-inline-start: 0; }
+  .flow { grid-template-columns: minmax(0, 1fr); gap: 26px; max-width: 420px; }
+  .flow li:not(:last-child)::after,
+  :root[dir="rtl"] .flow li:not(:last-child)::after { content: "\2193"; inset-inline-end: auto; inset-inline-start: 22px; top: auto; bottom: -24px; transform: none; }
+  .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .glance li:nth-child(3) { padding-inline-start: 0; border-inline-start: 0; }
+  .glance li:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .measures, .projects-more, .awards, .skills, .soft, .contact, .split { grid-template-columns: minmax(0, 1fr); }
+  .measures li + li { padding-inline-start: 0; border-inline-start: 0; border-top: 1px solid var(--line); }
+  .register > li { grid-template-columns: minmax(0, 1fr); }
+  .top nav { display: none; }
+  .lang-btn { margin-inline-start: auto; }
+}
+@media (max-width: 460px) {
+  .card { --lh: 21px; --pad: 20px; font-size: 12.5px; padding-block: var(--pad) 58px; padding-inline: 14px 16px; }
+  :root[dir="rtl"] .card { font-size: 12.5px; }
+  .card-grid { grid-template-columns: 5ch minmax(0, 1fr); column-gap: 8px; }
+  .glance { grid-template-columns: minmax(0, 1fr); }
+  .glance li, .glance li + li { padding-inline: 0; padding-block: 16px; border-inline-start: 0; }
+  .glance li + li { border-top: 1px solid var(--line); }
+  .lead { font-size: 1.05rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .stamp { animation: none; }
+}
+body { margin: 0; }
+a.mini { text-decoration: none; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="shelf">
+  <header class="top">
+    <span class="brand" data-i18n="brand"><b>020 ALD</b> Mudawi Aldossari</span>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research" data-i18n="nav_research">Research</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+        <li><a href="#recognition" data-i18n="nav_recognition">Recognition</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="lang-btn" type="button" id="lang-toggle" lang="ar">العربية</button>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow" data-i18n="eyebrow"><span>Information Science</span><span>Imam Abdulrahman Bin Faisal University</span><span>2022 &ndash; 2026</span></p>
+      <h1 data-i18n="name"><span class="given">Mudawi</span> Murdhi Aldossari</h1>
+      <p class="lead" data-i18n="lead">I organize records and archives so they stay accurate and easy to find, and I analyze data to support decisions. My work spans medical records, national archives, libraries, machine learning and research on how reliable large language models are.</p>
+      <div class="actions">
+        <a class="btn" href="cv.pdf" download="Mudawi_Aldossari_CV.pdf" data-i18n="btn_cv">Download CV (PDF)</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/madawi-a-6023a6300/" target="_blank" rel="noopener" data-i18n="btn_linkedin">LinkedIn &#8599;</a>
+        <a class="btn ghost" href="https://github.com/MudawiMAldossari" target="_blank" rel="noopener">GitHub &#8599;</a>
+        <a class="btn ghost" href="#contact" data-i18n="btn_contact">Contact</a>
+      </div>
+          </div>
+
+    <div class="card-wrap">
+      <figure class="card" aria-label="Library catalog card describing Mudawi Murdhi Aldossari">
+        <div class="card-grid">
+          <div class="cn">020<br>ALD<br>2026</div>
+          <div class="ct" data-i18n="card">
+            <p>Aldossari, Mudawi Murdhi.</p>
+            <p class="ti">Information science graduate : records, archives and data / Mudawi Murdhi Aldossari. -- Eastern Province, Saudi Arabia : Imam Abdulrahman Bin Faisal University, 2026.</p>
+            <p class="ti">1 portfolio : research, projects, practical training.</p>
+            <p class="ti">Includes one article accepted in Acta Innovations, 2026.</p>
+            <p class="ti tr">1. Records management. 2. Digital archiving. 3. Data analysis. 4. Machine learning. I. Title.</p>
+          </div>
+        </div>
+        <span class="stamp" aria-hidden="true" data-i18n="stamp">Class of 2026</span>
+      </figure>
+    </div>
+  </div>
+
+  <ul class="glance" aria-label="Highlights">
+    <li><p class="k" data-i18n="g1k">Accepted paper</p><p class="v" data-i18n="g1v">Acta Innovations, 2026</p></li>
+    <li><p class="k" data-i18n="g2k">Second place</p><p class="v" data-i18n="g2v">Graduation Projects Track, Humanities Research and Innovation Forum 2026</p></li>
+    <li><p class="k" data-i18n="g3k">Quarterfinalist</p><p class="v" data-i18n="g3v">Tabby Imagine 2026</p></li>
+    <li><p class="k" data-i18n="g4k">4 training placements</p><p class="v" data-i18n="g4v">Hospital, national archive and two libraries</p></li>
+  </ul>
+
+  <section id="research" aria-labelledby="research-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_research"><b>006.3</b>Artificial intelligence</p>
+      <h2 id="research-h" data-i18n="h_research">Research</h2>
+    </div>
+    <div class="body-col">
+      <h3 class="paper-title" lang="en" dir="ltr">Evaluating Large Language Model Reliability in Academic Advising: A Scenario-Based Benchmark of Policy Compliance, Decision Safety, and Policy Hallucination</h3>
+      <p class="authors" lang="en" dir="ltr">Waed Waleed Al-Abweeny, Nouf Mohammad Aloajel, Aliaa Ibrahim Ahmed, Saja Hamad Ali Alshahrani, <b>Mudawi Murdhi Abdullah Aldossari</b>, Reem Mardi Saad Alzharani, Maram Mohamd Ali Alamri</p>
+      <p class="venue"><span class="ltr"><i>Acta Innovations</i></span><span class="ltr">E-ISSN 2300-5599</span><span class="ok" data-i18n="accepted">Accepted for publication, October 2026</span></p>
+      <p class="paper-body" data-i18n="paper_body">A scenario-based benchmark that tests how reliably large language models answer academic advising questions. Each response is judged on three measures.</p>
+      <ul class="measures">
+        <li><h3 data-i18n="m1h">Policy compliance</h3><p data-i18n="m1p">Whether the answer follows the advising policy that applies.</p></li>
+        <li><h3 data-i18n="m2h">Decision safety</h3><p data-i18n="m2p">Whether the recommended action is safe for the student.</p></li>
+        <li><h3 data-i18n="m3h">Policy hallucination</h3><p data-i18n="m3p">Whether the model invents rules or policies that do not exist.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_projects"><b>005.7</b>Data in computer systems</p>
+      <h2 id="projects-h" data-i18n="h_projects">Projects</h2>
+    </div>
+    <div class="body-col">
+      <article class="feature">
+        <p class="kicker" data-i18n="spf_kicker">Power BI project &middot; Public data</p>
+        <h3 data-i18n="spf_title">Saudi Public Finance Dashboard</h3>
+        <p data-i18n="spf_body">A six-page Power BI dashboard that tracks Saudi government revenue, expenditure, the fiscal balance and public debt from FY2017 to FY2025, plus the FY2026 budget. Every figure comes from Ministry of Finance reports and cites the document and page it came from.</p>
+        <figure class="shot">
+          <img src="img/saudi-public-finance.png" width="1920" height="1080" loading="lazy" alt="Power BI report titled Saudi Public Finance, Overview page for FY2025: five KPI cards for revenue, expenditure, fiscal balance, public debt and non-oil share, a line chart of revenue and expenditure from FY2017 to FY2025, a column chart of the fiscal balance with FY2022 the only surplus, and three key findings">
+          <figcaption data-i18n="spf_cap">The Overview page, with FY2025 selected. The report has six pages.</figcaption>
+        </figure>
+        <div class="split">
+          <div>
+            <h4 data-i18n="spf_find_h">Key findings</h4>
+            <ul class="ticks" data-i18n="spf_find">
+              <li>Deficit in 8 of 9 years. FY2022 was the only surplus.</li>
+              <li>Spending exceeded the initial budget in 8 of 9 years.</li>
+              <li>Non-oil revenue nearly doubled and reached 45.4% of revenue.</li>
+              <li>Public debt rose 3.4 times, to SAR 1,519 billion.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-i18n="spf_did_h">What I did</h4>
+            <ul class="ticks" data-i18n="spf_did">
+              <li>Collected the figures from eight Ministry of Finance reports, with the source and page of each value.</li>
+              <li>Cleaned and checked the data in Python with 53 consistency checks.</li>
+              <li>Built the data model and wrote DAX measures for budget vs actual, year-over-year change and debt to revenue.</li>
+              <li>Designed six report pages with one layout and a custom theme.</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="chips tools" aria-label="Tools"><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Python</li><li>Excel</li></ul>
+        <div class="proj-links">
+          <a class="btn" href="https://github.com/MudawiMAldossari/saudi-public-finance-dashboard" target="_blank" rel="noopener" data-i18n="spf_link">View the project on GitHub &#8599;</a>
+        </div>
+      </article>
+
+      <article class="feature">
+        <p class="kicker" data-i18n="grad_kicker">Graduation project</p>
+        <h3 data-i18n="grad_title">Analysis and Classification of Suspicious Digital Activities Using Machine Learning</h3>
+        <p class="badge" data-i18n="grad_badge">Second place &middot; Humanities Research and Innovation Forum 2026</p>
+        <p data-i18n="grad_body">A web-based system that analyzes digital activity and flags what looks suspicious. A Random Forest model labels each activity as normal or suspicious, the results and security alerts are stored in a database, and an interactive dashboard shows the findings.</p>
+        <ol class="flow" aria-label="How the system works">
+          <li><p class="s" data-i18n="f1s">Digital activity</p><p class="d" data-i18n="f1d">Activity records enter the system</p></li>
+          <li><p class="s" data-i18n="f2s">Analysis</p><p class="d" data-i18n="f2d">Python prepares and analyzes the data</p></li>
+          <li><p class="s">Random Forest</p><p class="d" data-i18n="f3d">The model classifies each activity</p></li>
+          <li class="hot"><p class="s" data-i18n="f4s">Normal or suspicious</p><p class="d" data-i18n="f4d">Suspicious results raise security alerts</p></li>
+          <li><p class="s" data-i18n="f5s">Dashboard</p><p class="d" data-i18n="f5d">Results and alerts are stored and visualized</p></li>
+        </ol>
+        <ul class="chips" aria-label="Tools">
+          <li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Power BI</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <p class="kicker" data-i18n="ce_kicker">Power BI project</p>
+        <h3 data-i18n="ce_title">Customer Engagement and Sales Analysis</h3>
+        <p data-i18n="ce_body">An interactive Power BI report built on a practice dataset of customer purchases. I cleaned the data in Power Query, wrote DAX measures for the key figures, and designed a one-page report that tracks sales by month, channel and product, and customers by segment.</p>
+        <figure class="shot">
+          <img src="img/customer-engagement.png" width="1966" height="1095" alt="Power BI report titled Customer Engagement and Sales Analysis, with six KPI cards, a monthly sales line chart, bar charts of sales by channel and by product, and a donut chart of customers by segment">
+          <figcaption data-i18n="ce_cap">The report page in Power BI Desktop.</figcaption>
+        </figure>
+        <div class="split">
+          <div>
+            <h4 data-i18n="ce_prep_h">Data preparation in Power Query</h4>
+            <ul class="ticks" data-i18n="ce_prep">
+              <li>Set the correct data type for all 12 columns.</li>
+              <li>Standardized text in City, Channel and Product, so &ldquo;mobile app&rdquo; becomes &ldquo;Mobile App&rdquo;.</li>
+              <li>Removed rows that were exact duplicates while keeping repeat purchases by the same customer.</li>
+              <li>Kept rows with missing satisfaction scores instead of deleting those customers.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-i18n="ce_dax_h">DAX measures</h4>
+            <ul class="chips"><li>Total Sales</li><li>Total Orders</li><li>Total Customers</li><li>Average Order Value</li><li>Average Satisfaction</li><li>Average Engagement</li></ul>
+          </div>
+        </div>
+        <ul class="chips tools" aria-label="Tools"><li>Power BI</li><li>Power Query</li><li>DAX</li><li>Excel</li></ul>
+      </article>
+
+      <article class="feature">
+        <p class="kicker" data-i18n="lib_kicker">Academic project &middot; Power BI</p>
+        <h3 data-i18n="lib_title">Library Usage Data Analysis</h3>
+        <p data-i18n="lib_body">An Arabic-language Power BI dashboard that analyzes how students use the library. It tracks monthly visits, the service rating, total borrowing days and the most borrowed books, and shows how users split by specialization and academic level. Slicers filter every chart by level, specialization and gender.</p>
+        <figure class="shot">
+          <img src="img/library-usage.png" width="1879" height="1055" alt="Arabic Power BI dashboard titled Library Usage Analysis, with a monthly visitors line chart, a service rating card, a total borrowing days gauge, a specialization pie chart, a most borrowed books bar chart, a students by level column chart, and slicers for level, specialization and gender">
+          <figcaption data-i18n="lib_cap">The dashboard in Power BI Desktop.</figcaption>
+        </figure>
+        <ul class="chips tools" aria-label="Tools"><li>Power BI</li><li>Python</li><li>Excel</li></ul>
+      </article>
+
+      <div class="projects-more one">
+        <article class="proj">
+          <p class="kicker" data-i18n="acad_kicker">Academic project</p>
+          <h3 data-i18n="cloud_title">Cloud-Based Data Management System</h3>
+          <p data-i18n="cloud_body">Designed a cloud-based database and a simple system for storing, accessing and managing data.</p>
+          <ul class="chips" aria-label="Tools" data-i18n="cloud_chips"><li>Firebase</li><li>Database design</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="experience-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_experience"><b>651.5</b>Records management</p>
+      <h2 id="experience-h" data-i18n="h_experience">Practical training</h2>
+    </div>
+    <div class="body-col">
+      <ol class="register">
+        <li>
+          <div><h3 data-i18n="e1t">Medical Records Trainee</h3><p class="org" data-i18n="e1o">Medical Records Department, Maternity and Children Hospital, Dammam</p></div>
+          <ul data-i18n="e1b">
+            <li>Managed and organized medical records while maintaining data accuracy and confidentiality.</li>
+            <li>Archived and indexed medical records to support reliable retrieval.</li>
+            <li>Assisted with medical coding and medical records analysis.</li>
+            <li>Used electronic health information systems to locate and manage patient records.</li>
+          </ul>
+        </li>
+        <li>
+          <div><h3 data-i18n="e2t">Records and Archives Trainee</h3><p class="org" data-i18n="e2o">National Center for Archives and Records</p></div>
+          <ul data-i18n="e2b">
+            <li>Organized and archived official records.</li>
+            <li>Verified document information and supported easy access to records.</li>
+          </ul>
+        </li>
+        <li>
+          <div><h3 data-i18n="e3t">Library Trainee</h3><p class="org" data-i18n="e3o">Central Library, Rayan Campus</p></div>
+          <ul data-i18n="e3b">
+            <li>Applied Dewey Decimal Classification (DDC) to library collections.</li>
+            <li>Helped users find information resources through the library catalog.</li>
+          </ul>
+        </li>
+        <li>
+          <div><h3 data-i18n="e4t">Library and Cultural Programs Trainee</h3><p class="org" data-i18n="e4o">House of Culture</p></div>
+          <ul data-i18n="e4b">
+            <li>Organized library collections and supported cultural and educational programs.</li>
+            <li>Prepared informational materials and improved visitor access to information resources.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="recognition" aria-labelledby="recognition-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_recognition"><b>001.44</b>Incentives for research</p>
+      <h2 id="recognition-h" data-i18n="h_recognition">Recognition</h2>
+    </div>
+    <div class="body-col">
+      <div class="awards">
+        <article class="award">
+          <p class="who ltr">Tabby &middot; Imagine 2026</p>
+          <h3 data-i18n="a1h">Quarterfinalist</h3>
+          <p data-i18n="a1p">Proposed Tabby Missions, a product idea recognized for thoughtful reward-lifecycle rules, return handling and a clear proposal for controlled mission testing.</p>
+          <p class="meta" data-i18n="a1m">Issued 8 October 2026 &middot; Certificate ID TBI-2026-126-817321</p>
+        </article>
+        <article class="award">
+          <p class="who" data-i18n="a2w">Humanities Research and Innovation Forum 2026 &middot; Imam Abdulrahman Bin Faisal University</p>
+          <h3 data-i18n="a2h">Second place</h3>
+          <p data-i18n="a2p">Graduation Projects Track. Awarded for our graduation research project, &ldquo;Design of a Security System for Analyzing Suspicious Digital Activities Using Machine Learning.&rdquo;</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_skills"><b>025.04</b>Information storage and retrieval</p>
+      <h2 id="skills-h" data-i18n="h_skills">Skills</h2>
+    </div>
+    <div class="body-col">
+      <div class="skills">
+        <div>
+          <h3 data-i18n="s1h">Records and information</h3>
+          <ul class="chips" data-i18n="s1c"><li>Information management</li><li>Records management</li><li>Digital archiving</li><li>Digital records and document management</li><li>Medical records</li><li>Electronic health information systems</li><li>Dewey Decimal Classification</li></ul>
+        </div>
+        <div>
+          <h3 data-i18n="s2h">Data and analysis</h3>
+          <ul class="chips" data-i18n="s2c"><li>Data analysis</li><li>Data visualization</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Microsoft Excel</li><li>Python</li><li>Pandas</li><li>SQL</li></ul>
+        </div>
+        <div>
+          <h3 data-i18n="s3h">Systems and development</h3>
+          <ul class="chips" data-i18n="s3c"><li>Database management</li><li>Database design</li><li>Flask</li><li>SQLAlchemy</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Firebase</li><li>Information systems</li></ul>
+        </div>
+        <div>
+          <h3 data-i18n="s4h">Machine learning and AI</h3>
+          <ul class="chips" data-i18n="s4c"><li>Machine learning</li><li>Random Forest</li><li>LLM evaluation</li></ul>
+        </div>
+      </div>
+      <div class="soft">
+        <div>
+          <h3 data-i18n="prof_h">Professional</h3>
+          <p data-i18n="prof_p">Analytical thinking, research, problem solving, communication, teamwork, time management, attention to detail</p>
+        </div>
+        <div>
+          <h3 data-i18n="lang_h">Languages</h3>
+          <p data-i18n="lang_p">Arabic (native) &middot; English (fluent)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="education-h">
+    <div class="sec-head">
+      <p class="callno" data-i18n="cn_education"><b>378</b>Higher education</p>
+      <h2 id="education-h" data-i18n="h_education">Education</h2>
+    </div>
+    <div class="body-col">
+      <div class="edu">
+        <h3 data-i18n="edu_h">Bachelor of Information Science</h3>
+        <span class="years ltr">2022 &ndash; 2026</span>
+        <p data-i18n="edu_p">Imam Abdulrahman Bin Faisal University, Dammam, Saudi Arabia</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h" class="contact">
+    <div>
+      <h2 id="contact-h" data-i18n="contact_h">Let&rsquo;s talk</h2>
+      <p class="sub" data-i18n="contact_p">Open to roles in records and information management, digital archiving and data analysis. Based in the Eastern Province, Saudi Arabia.</p>
+    </div>
+    <div class="contact-list">
+      <div class="row">
+        <span class="lbl" data-i18n="lbl_email">EMAIL</span>
+        <a class="addr ltr" id="email-addr" href="mailto:Madawimaldossari@outlook.com">Madawimaldossari@outlook.com</a>
+        <button class="mini" type="button" id="copy-email" data-i18n="copy">Copy</button>
+      </div>
+      <div class="row">
+        <span class="lbl" data-i18n="lbl_linkedin">LINKEDIN</span>
+        <a class="ltr" href="https://www.linkedin.com/in/madawi-a-6023a6300/" target="_blank" rel="noopener">linkedin.com/in/madawi-a-6023a6300</a>
+      </div>
+      <div class="row">
+        <span class="lbl">GITHUB</span>
+        <a class="ltr" href="https://github.com/MudawiMAldossari" target="_blank" rel="noopener">github.com/MudawiMAldossari</a>
+      </div>
+      <div class="row" id="cv-row">
+        <span class="lbl" data-i18n="lbl_cv">CV</span>
+        <a class="mini" href="cv.pdf" download="Mudawi_Aldossari_CV.pdf" data-i18n="btn_pdf">Download PDF</a>
+              </div>
+    </div>
+  </section>
+
+  <footer>
+    <span data-i18n="foot_name">Mudawi Murdhi Aldossari</span>
+    <span data-i18n="foot_filed">Filed under 020 &middot; Library and information sciences</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var AR = {
+    brand: '<b>020 ALD</b> مضاوي الدوسري',
+    nav_research: 'البحث', nav_projects: 'المشاريع', nav_experience: 'التدريب',
+    nav_recognition: 'التكريم', nav_skills: 'المهارات', nav_contact: 'التواصل',
+    eyebrow: '<span>علم المعلومات</span><span>جامعة الإمام عبدالرحمن بن فيصل</span><span class="ltr">2022 &ndash; 2026</span>',
+    name: '<span class="given">مضاوي</span> مرضي الدوسري',
+    lead: 'أنظّم السجلات والأرشيف بحيث تبقى دقيقة وسهلة الوصول، وأحلّل البيانات لدعم اتخاذ القرار. يشمل عملي السجلات الطبية، والأرشيف الوطني، والمكتبات، وتعلّم الآلة، وأبحاثًا حول موثوقية النماذج اللغوية الكبيرة.',
+    btn_cv: 'تحميل السيرة الذاتية (PDF)', btn_linkedin: 'لينكدإن &#8599;', btn_contact: 'تواصل',
+    card: '<p>الدوسري، مضاوي مرضي.</p>' +
+      '<p class="ti">خريجة علم المعلومات : السجلات والأرشيف والبيانات / مضاوي مرضي الدوسري. -- المنطقة الشرقية، المملكة العربية السعودية : جامعة الإمام عبدالرحمن بن فيصل، 2026.</p>' +
+      '<p class="ti">1 ملف أعمال : بحث، مشاريع، تدريب ميداني.</p>' +
+      '<p class="ti">يتضمن بحثًا مقبولًا للنشر في مجلة <bdi>Acta Innovations</bdi>، 2026.</p>' +
+      '<p class="ti tr">1. إدارة السجلات. 2. الأرشفة الرقمية. 3. تحليل البيانات. 4. تعلّم الآلة. أ. العنوان.</p>',
+    stamp: 'دفعة 2026',
+    g1k: 'بحث مقبول للنشر', g1v: 'Acta Innovations، 2026',
+    g2k: 'المركز الثاني', g2v: 'مسار مشاريع التخرج، ملتقى البحث والابتكار في العلوم الإنسانية 2026',
+    grad_badge: 'المركز الثاني &middot; ملتقى البحث والابتكار في العلوم الإنسانية 2026',
+    g3k: 'متأهلة لربع النهائي', g3v: 'Tabby Imagine 2026',
+    g4k: '4 جهات تدريب', g4v: 'مستشفى، والمركز الوطني للوثائق والمحفوظات، ومكتبتان',
+    cn_research: '<b>006.3</b>الذكاء الاصطناعي', h_research: 'البحث',
+    accepted: 'مقبول للنشر، أكتوبر 2026',
+    paper_body: 'معيار قائم على السيناريوهات يختبر مدى موثوقية النماذج اللغوية الكبيرة في الإجابة عن أسئلة الإرشاد الأكاديمي. تُقيَّم كل إجابة وفق ثلاثة مقاييس.',
+    m1h: 'الالتزام بالسياسات', m1p: 'هل تتبع الإجابة سياسة الإرشاد المعمول بها.',
+    m2h: 'سلامة القرار', m2p: 'هل الإجراء المقترح آمن للطالب.',
+    m3h: 'هلوسة السياسات', m3p: 'هل يختلق النموذج قواعد أو سياسات غير موجودة.',
+    cn_projects: '<b>005.7</b>البيانات في أنظمة الحاسب', h_projects: 'المشاريع',
+    spf_kicker: 'مشروع Power BI &middot; بيانات عامة',
+    spf_title: 'لوحة المالية العامة السعودية',
+    spf_body: 'لوحة Power BI من ست صفحات تتابع إيرادات الحكومة السعودية ومصروفاتها والعجز أو الفائض والدين العام من 2017 إلى 2025، مع ميزانية 2026. كل رقم مأخوذ من تقارير وزارة المالية، ومعه اسم التقرير والصفحة.',
+    spf_cap: 'صفحة النظرة العامة مع اختيار سنة 2025. التقرير فيه ست صفحات.',
+    spf_find_h: 'أبرز النتائج',
+    spf_find: '<li>عجز في 8 من 9 سنوات، وكانت 2022 السنة الوحيدة بفائض.</li><li>تجاوز الإنفاق الميزانية المعتمدة في 8 من 9 سنوات.</li><li>تضاعفت الإيرادات غير النفطية تقريبًا ووصلت إلى 45.4% من الإيرادات.</li><li>ارتفع الدين العام 3.4 مرات ليصل إلى 1,519 مليار ريال.</li>',
+    spf_did_h: 'ما قمت به',
+    spf_did: '<li>جمعت الأرقام من ثمانية تقارير لوزارة المالية، مع مصدر كل رقم وصفحته.</li><li>نظّفت البيانات وتحققت منها في Python بـ 53 اختبار اتساق.</li><li>بنيت نموذج البيانات وكتبت مقاييس DAX لمقارنة الفعلي بالميزانية والتغير السنوي ونسبة الدين إلى الإيرادات.</li><li>صمّمت ست صفحات بتنسيق موحّد وثيم خاص.</li>',
+    spf_link: 'المشروع على GitHub &#8599;',
+    grad_kicker: 'مشروع التخرج',
+    grad_title: 'تحليل وتصنيف الأنشطة الرقمية المشبوهة باستخدام تعلّم الآلة',
+    grad_body: 'نظام ويب يحلّل الأنشطة الرقمية ويرصد المشبوه منها. يصنّف نموذج الغابة العشوائية (Random Forest) كل نشاط إلى طبيعي أو مشبوه، وتُحفظ النتائج والتنبيهات الأمنية في قاعدة بيانات، وتعرض لوحة تفاعلية النتائج.',
+    f1s: 'النشاط الرقمي', f1d: 'تدخل سجلات الأنشطة إلى النظام',
+    f2s: 'التحليل', f2d: 'تُجهَّز البيانات وتُحلَّل بلغة Python',
+    f3d: 'يصنّف النموذج كل نشاط',
+    f4s: 'طبيعي أو مشبوه', f4d: 'النتائج المشبوهة تولّد تنبيهات أمنية',
+    f5s: 'لوحة المعلومات', f5d: 'تُحفظ النتائج والتنبيهات وتُعرض بصريًا',
+    ce_kicker: 'مشروع Power BI',
+    ce_title: 'تحليل تفاعل العملاء والمبيعات',
+    ce_body: 'تقرير تفاعلي في Power BI مبني على بيانات تدريبية لمشتريات العملاء. نظّفت البيانات في Power Query، وكتبت مقاييس DAX للمؤشرات الرئيسية، وصمّمت تقريرًا من صفحة واحدة يتابع المبيعات حسب الشهر والقناة والمنتج، والعملاء حسب الشريحة.',
+    ce_cap: 'صفحة التقرير في Power BI Desktop.',
+    ce_prep_h: 'تجهيز البيانات في Power Query',
+    ce_prep: '<li>ضبطت نوع البيانات الصحيح لجميع الأعمدة الاثني عشر.</li><li>وحّدت كتابة النصوص في أعمدة المدينة والقناة والمنتج، فتصبح «mobile app» مثلًا «Mobile App».</li><li>حذفت الصفوف المكررة بالكامل فقط، مع الإبقاء على المشتريات المتكررة لنفس العميل.</li><li>أبقيت الصفوف التي تنقصها درجة الرضا بدل حذف هؤلاء العملاء.</li>',
+    ce_dax_h: 'مقاييس DAX',
+    acad_kicker: 'مشروع أكاديمي',
+    lib_title: 'تحليل بيانات استخدام المكتبة',
+    lib_kicker: 'مشروع أكاديمي &middot; Power BI',
+    lib_body: 'لوحة معلومات عربية في Power BI تحلّل استخدام الطلاب للمكتبة. تعرض عدد الزوار الشهري، ومعدل تقييم الخدمة، وإجمالي أيام الاستعارة، والكتب الأكثر استعارة، وتوزيع المستفيدين حسب التخصص والمستوى الدراسي. وتتيح أدوات التصفية فلترة كل الرسوم حسب المستوى والتخصص والجنس.',
+    lib_cap: 'لوحة المعلومات في Power BI Desktop.',
+    cloud_title: 'نظام سحابي لإدارة البيانات',
+    cloud_body: 'صمّمت قاعدة بيانات سحابية ونظامًا بسيطًا لتخزين البيانات والوصول إليها وإدارتها.',
+    cloud_chips: '<li>Firebase</li><li>تصميم قواعد البيانات</li>',
+    cn_experience: '<b>651.5</b>إدارة السجلات', h_experience: 'التدريب الميداني',
+    e1t: 'متدربة في السجلات الطبية', e1o: 'قسم السجلات الطبية، مستشفى الولادة والأطفال بالدمام',
+    e1b: '<li>نظّمت السجلات الطبية وأدرتها مع الحفاظ على دقة البيانات وسريتها.</li><li>أرشفت السجلات الطبية وفهرستها لتسهيل استرجاعها.</li><li>ساعدت في الترميز الطبي وتحليل السجلات الطبية.</li><li>استخدمت أنظمة المعلومات الصحية الإلكترونية للبحث عن سجلات المرضى وإدارتها.</li>',
+    e2t: 'متدربة في السجلات والأرشيف', e2o: 'المركز الوطني للوثائق والمحفوظات',
+    e2b: '<li>نظّمت الوثائق الرسمية وأرشفتها.</li><li>تحقّقت من بيانات الوثائق وسهّلت الوصول إلى السجلات.</li>',
+    e3t: 'متدربة في المكتبة', e3o: 'المكتبة المركزية، مقر الريان',
+    e3b: '<li>طبّقت تصنيف ديوي العشري (DDC) على مجموعات المكتبة.</li><li>ساعدت المستفيدين في الوصول إلى مصادر المعلومات عبر فهرس المكتبة.</li>',
+    e4t: 'متدربة في المكتبة والبرامج الثقافية', e4o: 'بيت الثقافة',
+    e4b: '<li>نظّمت مجموعات المكتبة ودعمت البرامج الثقافية والتعليمية.</li><li>أعددت مواد تعريفية وحسّنت وصول الزوار إلى مصادر المعلومات.</li>',
+    cn_recognition: '<b>001.44</b>حوافز البحث العلمي', h_recognition: 'التكريم',
+    a1h: 'متأهلة لربع النهائي',
+    a1p: 'قدّمت فكرة منتج «Tabby Missions»، وكُرّمت على قواعد مدروسة لدورة حياة المكافآت، ومعالجة حالات الإرجاع، ومقترح واضح لاختبار المهام بشكل مضبوط.',
+    a1m: 'صدرت في 8 أكتوبر 2026 &middot; رقم الشهادة <span class="ltr">TBI-2026-126-817321</span>',
+    a2w: 'ملتقى البحث والابتكار في العلوم الإنسانية 2026 &middot; جامعة الإمام عبدالرحمن بن فيصل', a2h: 'المركز الثاني',
+    a2p: 'في مسار مشاريع التخرج، عن مشروع التخرج البحثي «تصميم نظام أمني لتحليل الأنشطة الرقمية المشبوهة باستخدام تعلّم الآلة».',
+    cn_skills: '<b>025.04</b>تخزين المعلومات واسترجاعها', h_skills: 'المهارات',
+    s1h: 'السجلات والمعلومات',
+    s1c: '<li>إدارة المعلومات</li><li>إدارة السجلات</li><li>الأرشفة الرقمية</li><li>إدارة السجلات والوثائق الرقمية</li><li>السجلات الطبية</li><li>أنظمة المعلومات الصحية الإلكترونية</li><li>تصنيف ديوي العشري</li>',
+    s2h: 'البيانات والتحليل',
+    s2c: '<li>تحليل البيانات</li><li>تصوير البيانات</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Microsoft Excel</li><li>Python</li><li>Pandas</li><li>SQL</li>',
+    s3h: 'الأنظمة والتطوير',
+    s3c: '<li>إدارة قواعد البيانات</li><li>تصميم قواعد البيانات</li><li>Flask</li><li>SQLAlchemy</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Firebase</li><li>نظم المعلومات</li>',
+    s4h: 'تعلّم الآلة والذكاء الاصطناعي',
+    s4c: '<li>تعلّم الآلة</li><li>Random Forest</li><li>تقييم النماذج اللغوية الكبيرة</li>',
+    prof_h: 'المهارات المهنية',
+    prof_p: 'التفكير التحليلي، البحث، حل المشكلات، التواصل، العمل الجماعي، إدارة الوقت، الاهتمام بالتفاصيل',
+    lang_h: 'اللغات', lang_p: 'العربية (اللغة الأم) &middot; الإنجليزية (بطلاقة)',
+    cn_education: '<b>378</b>التعليم العالي', h_education: 'التعليم',
+    edu_h: 'بكالوريوس علم المعلومات',
+    edu_p: 'جامعة الإمام عبدالرحمن بن فيصل، الدمام، المملكة العربية السعودية',
+    contact_h: 'لنتواصل',
+    contact_p: 'أبحث عن فرص في إدارة السجلات والمعلومات، والأرشفة الرقمية، وتحليل البيانات. مقيمة في المنطقة الشرقية، المملكة العربية السعودية.',
+    lbl_email: 'البريد', lbl_linkedin: 'لينكدإن', lbl_cv: 'السيرة',
+    copy: 'نسخ', btn_pdf: 'تحميل PDF',
+    foot_name: 'مضاوي مرضي الدوسري',
+    foot_filed: 'مصنّفة تحت 020 &middot; علوم المكتبات والمعلومات'
+  };
+  var MSG = {
+    en: { copied: 'Copied', select: 'Selected, press Ctrl+C', saved: 'CV saved.', busy: 'A save prompt is already open. Try again in a moment.', fail: 'The CV can’t be downloaded from this view. Email for a copy.', toggle: 'العربية', toggleLang: 'ar' },
+    ar: { copied: 'تم النسخ', select: 'تم التحديد، اضغطي Ctrl+C', saved: 'تم حفظ السيرة الذاتية.', busy: 'نافذة الحفظ مفتوحة بالفعل. حاولي بعد لحظة.', fail: 'لا يمكن تحميل السيرة من هذه الصفحة. راسليني بالبريد للحصول على نسخة.', toggle: 'English', toggleLang: 'en' }
+  };
+
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  var EN = {};
+  nodes.forEach(function (el) { var k = el.getAttribute('data-i18n'); if (!(k in EN)) EN[k] = el.innerHTML; });
+
+  var current = 'en';
+  var toggle = document.getElementById('lang-toggle');
+  var root = document.documentElement;
+
+  function apply(lang) {
+    current = lang;
+    var dict = lang === 'ar' ? AR : EN;
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (dict[k] != null) el.innerHTML = dict[k];
+    });
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    toggle.textContent = MSG[lang].toggle;
+    toggle.setAttribute('lang', MSG[lang].toggleLang);
+    try { localStorage.setItem('portfolio-lang', lang); } catch (e) {}
+  }
+  toggle.addEventListener('click', function () { apply(current === 'ar' ? 'en' : 'ar'); });
+
+  var start = 'en';
+  if (location.hash === '#ar') start = 'ar';
+  else { try { if (localStorage.getItem('portfolio-lang') === 'ar') start = 'ar'; } catch (e) {} }
+  if (start === 'ar') apply('ar');
+
+  // Copy email
+  var copyBtn = document.getElementById('copy-email');
+  var addr = document.getElementById('email-addr');
+  copyBtn.addEventListener('click', function () {
+    var text = addr.textContent.trim();
+    var m = MSG[current];
+    function reset() { setTimeout(function () { copyBtn.textContent = current === 'ar' ? AR.copy : EN.copy; }, 1800); }
+    function selectIt() {
+      try {
+        var r = document.createRange(); r.selectNodeContents(addr);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        copyBtn.textContent = m.select; reset();
+      } catch (e) {}
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { copyBtn.textContent = m.copied; reset(); }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+
+})();
+</script>
+</body>
+</html>
